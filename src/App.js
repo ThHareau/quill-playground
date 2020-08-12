@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import Variables from './Components/Variables'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+    const [variables, setVariables] = useState([
+        {
+            name: 'last-name',
+            value: '',
+        },
+        {
+            name: 'first-name',
+            value: '',
+        }
+    ])
+    const [clickedVariable, setClickedVariable] = useState()
+
+    return (<div className="App" style={{maxWidth: '80%', margin: 'auto'}}>
+        <div style={{width: '500px', margin: '5em'}}>
+            <Variables variables={variables} setVariables={setVariables}/>
+        </div>
+        <div style={{display: 'flex'}}>
+            <div style={{border: 1, flex: 4}}>
+                <h3>Quill</h3>
+                <p>Clicked variable: {clickedVariable?.value || ''}</p>
+            </div>
+            <div style={{flex: 1, display: 'flex', flexDirection: 'column'}}>
+                <h3>Variables</h3>
+                {variables.filter(({value}) => !!value)
+                    .map((variable) => <button key={variable.name}
+                                               onClick={() => setClickedVariable(variable)}>{variable.name}</button>)
+                }
+            </div>
+        </div>
+    </div>);
 }
 
 export default App;
