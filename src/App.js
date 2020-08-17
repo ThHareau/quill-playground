@@ -1,19 +1,22 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import './App.css';
 import Variables from './Components/Variables'
+import Editor from './Components/Editor'
 
 const App = () => {
     const [variables, setVariables] = useState([
         {
             name: 'last-name',
-            value: '',
+            value: 'Hareau',
         },
         {
             name: 'first-name',
-            value: '',
+            value: 'Thomas',
         }
     ])
     const [clickedVariable, setClickedVariable] = useState()
+    const [template, setTemplate] = useState('')
+    const ref = useRef()
 
     return (<div className="App" style={{maxWidth: '80%', margin: 'auto'}}>
         <div style={{width: '500px', margin: '5em'}}>
@@ -23,12 +26,16 @@ const App = () => {
             <div style={{border: 1, flex: 4}}>
                 <h3>Quill</h3>
                 <p>Clicked variable: {clickedVariable?.value || ''}</p>
+                <Editor text={template} onChange={setTemplate} ref={ref}/>
             </div>
             <div style={{flex: 1, display: 'flex', flexDirection: 'column'}}>
                 <h3>Variables</h3>
                 {variables.filter(({value}) => !!value)
                     .map((variable) => <button key={variable.name}
-                                               onClick={() => setClickedVariable(variable)}>{variable.name}</button>)
+                                               onClick={() => {
+                                                   setClickedVariable(variable)
+                                                   ref.current.variable(variable)
+                                               }}>{variable.name}</button>)
                 }
             </div>
         </div>
