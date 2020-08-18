@@ -2,23 +2,25 @@ import React, {useState, useRef} from 'react';
 import './App.css';
 import Variables from './Components/Variables'
 import TemplateEditor from './Components/TemplateEditor'
+import RenderedEditor from './Components/RenderedEditor'
 
 const App = () => {
     const [variables, setVariables] = useState([
         {
             name: 'last-name',
-            value: 'Hareau',
+            value: '',
             displayName: '',
         },
         {
             name: 'first-name',
-            value: 'Thomas',
+            value: '',
             displayName: '',
         }
     ])
+    const ref = useRef()
     const [clickedVariable, setClickedVariable] = useState()
     const [template, setTemplate] = useState('')
-    const ref = useRef()
+    const [text, setText] = useState(template)
 
     return (<div className="App" style={{maxWidth: '80%', margin: 'auto'}}>
         <div style={{width: '600px', margin: '5em'}}>
@@ -45,7 +47,7 @@ const App = () => {
         <div>
             <h2>Result</h2>
             <div>
-                {template}
+                <RenderedEditor template={template} text={text} onChange={setText} variables={variables}/>
             </div>
         </div>
     </div>);

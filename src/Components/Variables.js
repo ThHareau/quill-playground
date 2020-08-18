@@ -1,12 +1,10 @@
 import React from 'react'
 
-const Variable = ({name, value, displayName, onValueChange, onDisplayNameChange}) => (
+const Variable = ({name, value, displayName, onValueNameChange, onDisplayNameChange}) => (
     <div style={{display: 'flex', alignItems: 'center'}}>
         <label style={{flex: 1}}>{name}: </label>
 
-        <input type="text" placeholder="Display name" value={displayName} style={{flex: 2}}  onChange={({target: {value}}) => onDisplayNameChange(value)}/>
-
-        <input type="text" value={value} style={{flex: 2}} onChange={({target: {value}}) => onValueChange(value)}/>
+        <input type="text" value={value} style={{flex: 2}} onChange={({target: {value}}) => onValueNameChange(value)}/>
     </div>
 )
 
