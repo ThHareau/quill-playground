@@ -15,11 +15,13 @@ export default ({variables, setVariables}) => {
 
     return (<form>
         {variables.map(({name, value, displayName}) => (
-            <Variable name={name}
-                      value={value}
-                      key={name}
-                      displayName={displayName}
-                      onDisplayNameChange={(update) => setVariable(name, {value, displayName: update})}
-                      onValueNameChange={(update) => setVariable(name, { displayName, value: update })}/>))}
+            <Variable
+                name={name}
+                value={value}
+                key={name}
+                displayName={displayName}
+                onDisplayNameChange={(update) => setVariable(name, {value, displayName: update})}
+                onValueNameChange={(update) => setVariable(name, {displayName, value: update})}
+            />))}
     </form>)
 }

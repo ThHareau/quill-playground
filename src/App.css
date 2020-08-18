@@ -1,0 +1,17 @@
+.App {
+    max-Width: 80%;
+    margin: auto;
+}
+
+.variableEditorView {
+    width: 600px;
+    margin: 5em;
+}
+
+.templateView {
+    flex: 4;
+}
+
+.variableView {
+    flex: 1;
+}

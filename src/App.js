@@ -4,7 +4,24 @@ import Variables from './Components/Variables'
 import TemplateEditor from './Components/TemplateEditor'
 import RenderedEditor from './Components/RenderedEditor'
 
+const VariablesPanel = ({variables, onVariableClicked}) => (
+    <>
+        <h3>Variables</h3>
+        {variables.filter(({value}) => !!value)
+            .map((variable) =>
+                <button
+                    key={variable.name}
+                    onClick={() => onVariableClicked(variable)}
+                >
+                    {variable.name}
+                </button>
+            )
+        }
+    </>
+)
+
 const App = () => {
+    const ref = useRef()
     const [variables, setVariables] = useState([
         {
             name: 'last-name',
@@ -15,31 +32,23 @@ const App = () => {
             value: '',
         }
     ])
-    const ref = useRef()
     const [template, setTemplate] = useState('')
     const [text, setText] = useState(template)
 
-    return (<div className="App" style={{maxWidth: '80%', margin: 'auto'}}>
-        <div style={{width: '600px', margin: '5em'}}>
+    return (<div className="App">
+        <div className="variableEditorView">
             <Variables variables={variables} setVariables={setVariables}/>
         </div>
-        <div style={{display: 'flex'}}>
-            <div style={{border: 1, flex: 4}}>
+        <div className="row">
+            <div className="templateView">
                 <h3>Quill</h3>
                 <TemplateEditor text={template} onChange={setTemplate} ref={ref}/>
             </div>
-            <div style={{flex: 1, display: 'flex', flexDirection: 'column'}}>
-                <h3>Variables</h3>
-                {variables.filter(({value}) => !!value)
-                    .map((variable) =>
-                        <button
-                            key={variable.name}
-                            onClick={() => ref.current.variable(variable)}
-                        >
-                            {variable.name}
-                        </button>
-                    )
-                }
+            <div className="row column variableView">
+                <VariablesPanel
+                    variables={variables}
+                    onVariableClicked={(variableName) => ref.current.variable(variableName)}
+                />
             </div>
         </div>
 
