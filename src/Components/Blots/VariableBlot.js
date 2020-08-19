@@ -1,4 +1,5 @@
 import {Quill} from 'react-quill'
+import {t} from '../../Services/i18n'
 
 const InlineEmbed = Quill.import('blots/embed');
 
@@ -10,16 +11,13 @@ export class VariableBlot extends InlineEmbed {
             node.setAttribute(`data-${key}`, variable[key]);
         })
 
-        node.innerText = variable.displayName || variable.name
+        node.innerText = t(variable.name)
 
         return node
     }
 
     static value(domNode) {
-        return ['displayName', 'name']
-            .filter((key) => domNode.hasAttribute(`data-${key}`))
-            .reduce((carry, key) => ({...carry, [key]: domNode.getAttribute(`data-${key}`)}), {})
-
+        return {name: domNode.getAttribute(`data-name`)}
     }
 }
 

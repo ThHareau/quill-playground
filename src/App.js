@@ -25,14 +25,14 @@ const App = () => {
     const [variables, setVariables] = useState([
         {
             name: 'last-name',
-            value: '',
+            value: 'Hareau',
         },
         {
             name: 'first-name',
-            value: '',
+            value: 'Thomas',
         }
     ])
-    const [template, setTemplate] = useState('')
+    const [template, setTemplate] = useState('<p><span class="ql-variable" data-name="first-name">﻿<span contenteditable="false">Prénom</span>﻿</span> <span class="ql-variable" data-name="last-name">﻿<span contenteditable="false">Nom de famille</span>﻿</span></p>')
     const [text, setText] = useState(template)
 
     return (<div className="App">
@@ -56,6 +56,20 @@ const App = () => {
             <h2>Result</h2>
             <div>
                 <RenderedEditor template={template} text={text} onChange={setText} variables={variables}/>
+            </div>
+        </div>
+
+        <div>
+            <h2>Text result</h2>
+            <div>
+                {text}
+            </div>
+        </div>
+
+        <div>
+            <h2>Template result</h2>
+            <div>
+                {template}
             </div>
         </div>
     </div>);
