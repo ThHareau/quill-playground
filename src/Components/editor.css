@@ -1,3 +1,9 @@
 .ql-variable {
     border: dashed 1px;
+    background: lightyellow;
+}
+
+.ql-input {
+    border: dashed 1px;
+    background: lightblue;
 }

@@ -20,6 +20,17 @@ const VariablesPanel = ({variables, onVariableClicked}) => (
     </>
 )
 
+const InputsPanel = ({onInputClicked}) => (
+    <>
+        <h3>Inputs</h3>
+        <button onClick={() => {
+            const displayName = prompt('Display name of your input?')
+            const name = Date.now()
+            onInputClicked({ displayName, name})
+        }}>New input</button>
+    </>
+)
+
 const App = () => {
     const ref = useRef()
     const [variables, setVariables] = useState([
@@ -32,7 +43,7 @@ const App = () => {
             value: 'Thomas',
         }
     ])
-    const [template, setTemplate] = useState('<p><span class="ql-variable" data-name="first-name">﻿<span contenteditable="false">Prénom</span>﻿</span> <span class="ql-variable" data-name="last-name">﻿<span contenteditable="false">Nom de famille</span>﻿</span></p>')
+    const [template, setTemplate] = useState('<p><span class="ql-variable" data-name="first-name">﻿<span contenteditable="false">Prénom</span>﻿</span> <span class="ql-variable" data-name="last-name">﻿<span contenteditable="false">Nom</span>﻿</span></p><p><br></p><p><span class="ql-input" data-name="1597836080122" data-display-name="Raison">﻿<span contenteditable="false">Raison</span>﻿</span></p>')
     const [text, setText] = useState(template)
 
     return (<div className="App">
@@ -49,6 +60,7 @@ const App = () => {
                     variables={variables}
                     onVariableClicked={(variableName) => ref.current.variable(variableName)}
                 />
+                <InputsPanel onInputClicked={ref.current?.input}/>
             </div>
         </div>
 

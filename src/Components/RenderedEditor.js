@@ -2,6 +2,8 @@ import React, {useEffect, useRef, useState} from 'react'
 import ReactQuill, {Quill} from 'react-quill'
 import 'react-quill/dist/quill.snow.css';
 import {VariableBlot} from './Blots/VariableBlot'
+import {InputBlot} from './Blots/InputBlot'
+import {EmbedSelector} from './Modules/EmbedSelector'
 
 const getValue = (variableName, variables) => variables.find(({name}) => name === variableName)?.value || `[NODEF ${variableName}]`
 
@@ -25,8 +27,10 @@ const replaceVariables = (delta, variables) => {
 }
 
 Quill.register('blots/embed', VariableBlot);
+Quill.register('blots/embed', InputBlot);
+Quill.register('modules/embedSelector', EmbedSelector);
 
-const formats = ["variable", "bold"] // add custom format name + any built-in formats you need
+const formats = ["variable", "bold", 'input'] // add custom format name + any built-in formats you need
 
 export default ({text, onChange, template, variables}) => {
     const ref = useRef()
@@ -51,5 +55,9 @@ export default ({text, onChange, template, variables}) => {
     }, [text, shouldRerenderVariables, variables])
 
 
-    return <ReactQuill theme="snow" value={text} onChange={onChange} formats={formats} ref={ref}/>
+    return <ReactQuill theme="snow" value={text} onChange={onChange} formats={formats} ref={ref} modules={{ embedSelector: {
+            blots: [InputBlot],
+            action: 'select',
+        }
+    }}/>
 }
