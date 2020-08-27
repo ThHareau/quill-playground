@@ -10,6 +10,7 @@ const VariablesPanel = ({variables, onVariableClicked}) => (
         {variables.filter(({value}) => !!value)
             .map((variable) =>
                 <button
+                    type="button"
                     key={variable.name}
                     onClick={() => onVariableClicked(variable)}
                 >
@@ -23,7 +24,8 @@ const VariablesPanel = ({variables, onVariableClicked}) => (
 const InputsPanel = ({onInputClicked}) => (
     <>
         <h3>Inputs</h3>
-        <button onClick={() => {
+        <button type="button" onClick={() => {
+            // eslint-disable-next-line no-alert
             const displayName = prompt('Display name of your input?')
             const name = Date.now()
             onInputClicked({ displayName, name})
@@ -31,7 +33,7 @@ const InputsPanel = ({onInputClicked}) => (
     </>
 )
 
-const App = () => {
+export default () => {
     const ref = useRef()
     const [variables, setVariables] = useState([
         {
@@ -43,7 +45,7 @@ const App = () => {
             value: 'Thomas',
         }
     ])
-    const [template, setTemplate] = useState('<p><span class="ql-variable" data-name="first-name">﻿<span contenteditable="false">Prénom</span>﻿</span> <span class="ql-variable" data-name="last-name">﻿<span contenteditable="false">Nom</span>﻿</span></p><p><br></p><p><span class="ql-input" data-name="1597836080122" data-display-name="Raison">﻿<span contenteditable="false">Raison</span>﻿</span></p>')
+    const [template, setTemplate] = useState('')
     const [text, setText] = useState(template)
 
     return (<div className="App">
@@ -86,5 +88,3 @@ const App = () => {
         </div>
     </div>);
 }
-
-export default App;

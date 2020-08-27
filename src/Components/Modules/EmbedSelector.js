@@ -2,11 +2,10 @@ import {Quill} from 'react-quill'
 
 const Parchment = Quill.import('parchment')
 
-
-export class EmbedSelector {
+export default class EmbedSelector {
     constructor(quill, options) {
         quill.root.addEventListener('click', (ev) => {
-            let input = Parchment.find(ev.target, true);
+            const input = Parchment.find(ev.target, true);
 
             if (options.blots?.find((blot) => input instanceof blot)) {
                 switch (options.action) {

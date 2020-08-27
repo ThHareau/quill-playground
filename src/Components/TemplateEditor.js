@@ -2,18 +2,17 @@ import React, {forwardRef, useImperativeHandle, useRef} from "react";
 import ReactQuill, {Quill} from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import './editor.css'
-import {VariableBlot} from './Blots/VariableBlot'
-import {InputBlot} from './Blots/InputBlot'
-import {EmbedSelector} from './Modules/EmbedSelector'
+import VariableBlot from './Blots/VariableBlot'
+import InputBlot from './Blots/InputBlot'
+import EmbedSelector from './Modules/EmbedSelector'
 
 Quill.register('blots/embed', VariableBlot);
 Quill.register('blots/embed', InputBlot);
 Quill.register('modules/embedSelector', EmbedSelector);
 
-const formats = ["variable", "bold", 'input'] // add custom format name + any built-in formats you need
+const formats = ["variable", "bold", 'input', "list"] // add custom format name + any built-in formats you need
 
-const TemplateEditor = (props, forwardedRef) => {
-    const {text, onChange} = props
+const TemplateEditor = ({text, onChange}, forwardedRef) => {
     const editorRef = useRef()
 
     const quillAction = (type) => (value) => {

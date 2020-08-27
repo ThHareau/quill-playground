@@ -2,9 +2,9 @@ import {Quill} from 'react-quill'
 
 const InlineEmbed = Quill.import('blots/embed');
 
-export class InputBlot extends InlineEmbed {
+export default class InputBlot extends InlineEmbed {
     static create(input) {
-        let node = super.create(input);
+        const node = super.create(input);
 
         const { name, displayName } = input
 

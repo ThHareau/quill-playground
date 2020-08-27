@@ -3,9 +3,9 @@ import {t} from '../../Services/i18n'
 
 const InlineEmbed = Quill.import('blots/embed');
 
-export class VariableBlot extends InlineEmbed {
+export default class VariableBlot extends InlineEmbed {
     static create(variable) {
-        let node = super.create(variable);
+        const node = super.create(variable);
 
         Object.keys(variable).forEach((key) => {
             node.setAttribute(`data-${key}`, variable[key]);
