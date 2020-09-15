@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/quill-playground/static/css/main.d6d0f4e8.chunk.css",
-    "main.js": "/quill-playground/static/js/main.107c08c5.chunk.js",
-    "main.js.map": "/quill-playground/static/js/main.107c08c5.chunk.js.map",
+    "main.js": "/quill-playground/static/js/main.93c787eb.chunk.js",
+    "main.js.map": "/quill-playground/static/js/main.93c787eb.chunk.js.map",
     "runtime-main.js": "/quill-playground/static/js/runtime-main.99fa209b.js",
     "runtime-main.js.map": "/quill-playground/static/js/runtime-main.99fa209b.js.map",
     "static/css/2.3c515868.chunk.css": "/quill-playground/static/css/2.3c515868.chunk.css",
     "static/js/2.e7abf502.chunk.js": "/quill-playground/static/js/2.e7abf502.chunk.js",
     "static/js/2.e7abf502.chunk.js.map": "/quill-playground/static/js/2.e7abf502.chunk.js.map",
     "index.html": "/quill-playground/index.html",
-    "precache-manifest.422b53a69fb6394a4b2ffc2354d322ce.js": "/quill-playground/precache-manifest.422b53a69fb6394a4b2ffc2354d322ce.js",
+    "precache-manifest.11c1ec92637fea3e6924f3c42e24193f.js": "/quill-playground/precache-manifest.11c1ec92637fea3e6924f3c42e24193f.js",
     "service-worker.js": "/quill-playground/service-worker.js",
     "static/css/2.3c515868.chunk.css.map": "/quill-playground/static/css/2.3c515868.chunk.css.map",
     "static/css/main.d6d0f4e8.chunk.css.map": "/quill-playground/static/css/main.d6d0f4e8.chunk.css.map",
@@ -20,6 +20,6 @@
     "static/css/2.3c515868.chunk.css",
     "static/js/2.e7abf502.chunk.js",
     "static/css/main.d6d0f4e8.chunk.css",
-    "static/js/main.107c08c5.chunk.js"
+    "static/js/main.93c787eb.chunk.js"
   ]
 }
