@@ -38,11 +38,11 @@ export default () => {
     const [variables, setVariables] = useState([
         {
             name: 'last-name',
-            value: 'Hareau',
+            value: 'Doe',
         },
         {
             name: 'first-name',
-            value: 'Thomas',
+            value: 'Joan',
         }
     ])
     const [template, setTemplate] = useState('')
