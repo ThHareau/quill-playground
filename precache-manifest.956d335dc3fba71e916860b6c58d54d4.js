@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "1ef6eb0356f6e2e6eab57d68a5de426d",
+    "revision": "1c87ef640d3acdf98985b2f1440ffa75",
     "url": "/quill-playground/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/quill-playground/static/css/2.3c515868.chunk.css"
   },
   {
-    "revision": "a1ebfe617ba4b0d0814e",
-    "url": "/quill-playground/static/css/main.d6d0f4e8.chunk.css"
+    "revision": "3e94fb02e41db539f21b",
+    "url": "/quill-playground/static/css/main.7fb8e67e.chunk.css"
   },
   {
     "revision": "e2642c20ae4e2984d804",
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/quill-playground/static/js/2.41cb2800.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "a1ebfe617ba4b0d0814e",
-    "url": "/quill-playground/static/js/main.db058e50.chunk.js"
+    "revision": "3e94fb02e41db539f21b",
+    "url": "/quill-playground/static/js/main.ee7f0d6f.chunk.js"
   },
   {
     "revision": "994bc8a3e344f86d0ad3",
