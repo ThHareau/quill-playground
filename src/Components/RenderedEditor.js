@@ -9,22 +9,22 @@ import TabNavigator from './Modules/TabNavigator'
 const getValue = (variableName, variables) => variables.find(({name}) => name === variableName)?.value || `[NODEF ${variableName}]`
 
 const replaceVariablesInInsert = (op, variables) => {
-    if (!op.insert) return op
+  if (!op.insert) return op
 
-    const {insert} = op
-    if (insert.variable)
-        return {...op, insert: getValue(insert.variable.name, variables)}
+  const {insert} = op
+  if (insert.variable)
+    return {...op, insert: getValue(insert.variable.name, variables)}
 
-    return op
+  return op
 }
 
 const replaceVariables = (delta, variables) => {
-    const {ops} = delta
+  const {ops} = delta
 
-    return {
-        ...delta,
-        ops: ops.map((op) => replaceVariablesInInsert(op, variables))
-    }
+  return {
+    ...delta,
+    ops: ops.map((op) => replaceVariablesInInsert(op, variables))
+  }
 }
 
 Quill.register('blots/embed', VariableBlot);
@@ -35,37 +35,37 @@ Quill.register('modules/tabNavigator', TabNavigator);
 const formats = ["variable", "bold", 'input', "list"] // add custom format name + any built-in formats you need
 
 export default ({text, onChange, template, variables}) => {
-    const ref = useRef()
+  const ref = useRef()
 
-    const [shouldRerenderVariables, setShouldRerenderVariables] = useState(true)
+  const [shouldRerenderVariables, setShouldRerenderVariables] = useState(true)
 
-    useEffect(() => {
-        onChange(template)
-        setShouldRerenderVariables(true)
-    }, [template, onChange, variables])
+  useEffect(() => {
+    onChange(template)
+    setShouldRerenderVariables(true)
+  }, [template, onChange, variables])
 
-    useEffect(() => {
-        if (!shouldRerenderVariables) return
-        if (!ref.current) return
+  useEffect(() => {
+    if (!shouldRerenderVariables) return
+    if (!ref.current) return
 
-        const editor = ref.current.getEditor()
-        const delta = editor.getContents()
-        const updatedDelta = replaceVariables(delta, variables)
+    const editor = ref.current.getEditor()
+    const delta = editor.getContents()
+    const updatedDelta = replaceVariables(delta, variables)
 
-        setShouldRerenderVariables(false)
-        editor.setContents(updatedDelta, Quill.sources.API)
-    }, [text, shouldRerenderVariables, variables])
+    setShouldRerenderVariables(false)
+    editor.setContents(updatedDelta, Quill.sources.API)
+  }, [text, shouldRerenderVariables, variables])
 
 
-    return <ReactQuill theme="snow" value={text} onChange={onChange} formats={formats} ref={ref} modules={
-        {
-            embedSelector: {
-                blots: [InputBlot],
-                action: 'select',
-            },
-            tabNavigator: {
-                blots: [InputBlot],
-            },
-        }
-    }/>
+  return <ReactQuill theme="snow" value={text} onChange={onChange} formats={formats} ref={ref} modules={
+    {
+      embedSelector: {
+        blots: [InputBlot],
+        action: 'select',
+      },
+      tabNavigator: {
+        blots: [InputBlot],
+      },
+    }
+  }/>
 }

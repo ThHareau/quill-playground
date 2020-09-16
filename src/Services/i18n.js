@@ -1,8 +1,8 @@
 if (!window.translations) {
-    window.translations = {
-        'last-name': 'Nom',
-        'first-name': 'Prénom',
-    }
+  window.translations = {
+    'last-name': 'Nom',
+    'first-name': 'Prénom',
+  }
 }
 
 // eslint-disable-next-line import/prefer-default-export

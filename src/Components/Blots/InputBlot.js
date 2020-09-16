@@ -6,7 +6,7 @@ export default class InputBlot extends InlineEmbed {
     static create(input) {
         const node = super.create(input);
 
-        const { name, displayName } = input
+        const {name, displayName} = input
 
         node.setAttribute('data-name', name);
         node.setAttribute('data-display-name', displayName);

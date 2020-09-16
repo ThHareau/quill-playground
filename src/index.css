@@ -1,7 +1,7 @@
 .row {
-    display: flex;
+  display: flex;
 }
 
 .row .column {
-    flex-direction: column;
+  flex-direction: column;
 }
