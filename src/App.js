@@ -1,5 +1,6 @@
 import React, {useRef, useState} from 'react';
 import './App.css';
+import RichTextViewer from './Components/RichTextViewer'
 import Variables from './Components/Variables'
 import TemplateEditor from './Components/TemplateEditor'
 import RenderedEditor from './Components/RenderedEditor'
@@ -48,6 +49,7 @@ export default () => {
     ])
     const [template, setTemplate] = useState('')
     const [text, setText] = useState(template)
+    const [search, setSearch] = useState('')
 
     return (<div className="App">
         <div className="variableEditorView">
@@ -74,6 +76,14 @@ export default () => {
             </div>
         </div>
 
+      <div>
+        <h2>Rich  text viewer</h2>
+        <input placeholder="Search a word" onChange={({target: {value}}) => setSearch(value)} value={search}/>
+        <div>
+          <RichTextViewer text={text}  search={search}/>
+        </div>
+      </div>
+
         <div>
             <h2>Text result</h2>
             <div>
@@ -87,5 +97,6 @@ export default () => {
                 {template}
             </div>
         </div>
+
     </div>);
 }

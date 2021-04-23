@@ -32,7 +32,7 @@ Quill.register('blots/embed', InputBlot);
 Quill.register('modules/embedSelector', EmbedSelector);
 Quill.register('modules/tabNavigator', TabNavigator);
 
-const formats = ["variable", "bold", 'input', "list"] // add custom format name + any built-in formats you need
+const formats = ["variable", "bold", 'input', "list", "header"] // add custom format name + any built-in formats you need
 
 export default ({text, onChange, template, variables}) => {
   const ref = useRef()
