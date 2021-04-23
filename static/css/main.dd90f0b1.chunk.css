@@ -1,0 +1,2 @@
+.row{display:flex;flex:1 1}.App,.row .column{flex-direction:column}.App{max-width:80%;margin:auto;display:flex;height:100vh}.variableEditorView{max-width:600px;margin:5em}.templateView{flex:4 1}.variableView,.viewer{flex:1 1}.viewer{margin:1em}.ql-variable{border:1px dashed;background:#ffffe0}.ql-input{border:1px dashed;background:#add8e6}
+/*# sourceMappingURL=main.dd90f0b1.chunk.css.map */
